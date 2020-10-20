@@ -1,7 +1,8 @@
 import 'package:drink_app/constants.dart';
-import 'package:drink_app/screens/mainmenu/components/menu_category.dart';
-import 'package:drink_app/screens/mainmenu/components/menu_drink.dart';
-import 'package:drink_app/screens/mainmenu/components/search_field.dart';
+import 'package:drink_app/screens/cart/order_screen.dart';
+import 'package:drink_app/screens/home/components/menu_category.dart';
+import 'package:drink_app/screens/home/components/menu_drink.dart';
+import 'package:drink_app/screens/home/components/search_field.dart';
 import 'package:drink_app/size_config.dart';
 import 'package:flutter/material.dart';
 
@@ -26,19 +27,39 @@ class _BodyState extends State<Body> {
                 SizedBox(
                   height: defaultSize * 2,
                 ),
-                Padding(
-                  padding: EdgeInsets.only(
-                      left: defaultSize * 2, right: defaultSize * 2),
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      "Lets have some drinks",
-                      style: TextStyle(
-                          color: primaryColor,
-                          fontSize: defaultSize * 1.8,
-                          fontWeight: FontWeight.w700),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(
+                          left: defaultSize * 2, right: defaultSize * 2),
+                      child: Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          "Lets have some drinks",
+                          style: TextStyle(
+                              color: primaryColor,
+                              fontSize: defaultSize * 1.8,
+                              fontWeight: FontWeight.w700),
+                        ),
+                      ),
                     ),
-                  ),
+                    Padding(
+                      padding: EdgeInsets.only(
+                          left: defaultSize * 2, right: defaultSize * 2),
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                                builder: (context) => OrderScreen()),
+                          );
+                          // Navigator.of(context).pushNamedAndRemoveUntil(
+                          //     '/order_page', (Route<dynamic> route) => false);
+                        },
+                        child: Icon(Icons.shopping_cart_outlined),
+                      ),
+                    )
+                  ],
                 ),
                 SizedBox(
                   height: defaultSize * 1,

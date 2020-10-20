@@ -3,21 +3,18 @@ import 'package:drink_app/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class DrinkCard extends StatefulWidget {
-  final String drinkImage;
-  final String drinkName;
-  final String price;
-
-  DrinkCard({this.drinkImage, this.drinkName, this.price});
-  @override
-  _DrinkCardState createState() => _DrinkCardState();
-}
-
-class _DrinkCardState extends State<DrinkCard> {
-  double defaultSize = SizeConfig.defaultSize;
+class DrinkCard extends StatelessWidget {
+  const DrinkCard({
+    Key key,
+    this.drinkImage,
+    this.drinkName,
+    this.drinkPrice,
+  }) : super(key: key);
+  final String drinkImage, drinkName, drinkPrice;
 
   @override
   Widget build(BuildContext context) {
+    double defaultSize = SizeConfig.defaultSize;
     return Container(
       // color: Colors.black,
       margin: EdgeInsets.only(left: defaultSize * 3),
@@ -50,10 +47,18 @@ class _DrinkCardState extends State<DrinkCard> {
               crossAxisAlignment: CrossAxisAlignment.center,
               // mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SvgPicture.asset(
-                  widget.drinkImage,
+                Container(
+                  // margin: EdgeInsets.all(10),
                   height: defaultSize * 25,
-                  width: defaultSize * 30,
+                  width: defaultSize * 25,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.rectangle,
+                    image: DecorationImage(
+                      image: NetworkImage(
+                          "http://jbskr.000webhostapp.com/drink_app/gambarMinuman/" +
+                              drinkImage),
+                    ),
+                  ),
                 ),
                 SizedBox(
                   height: defaultSize * 1.5,
@@ -76,7 +81,7 @@ class _DrinkCardState extends State<DrinkCard> {
                   height: defaultSize * 1.5,
                 ),
                 Text(
-                  widget.drinkName,
+                  drinkName,
                   style: TextStyle(
                     color: secondaryColor,
                     fontSize: defaultSize * 2,
@@ -84,7 +89,7 @@ class _DrinkCardState extends State<DrinkCard> {
                   ),
                 ),
                 Text(
-                  widget.price,
+                  drinkPrice,
                   style: TextStyle(
                     color: secondaryColor,
                     fontSize: defaultSize * 2,

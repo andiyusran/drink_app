@@ -1,10 +1,9 @@
 import 'package:drink_app/constants.dart';
-import 'package:drink_app/screens/mainmenu.dart';
+import 'package:drink_app/screens/home/mainmenu.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 void main() {
-  
   runApp(MyApp());
 }
 

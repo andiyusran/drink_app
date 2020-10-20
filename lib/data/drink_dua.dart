@@ -1,16 +1,16 @@
 import 'package:drink_app/models/drink.dart';
 
-final drinks = [
+final drinks_dua = [
   Drink(
     drinkImage: "assets/images/thai-tea.svg",
-    drinkName: "Red Velvet Choco",
-    drinkCategory: "Choco",
+    drinkName: "Red Velvet Pudding",
+    drinkCategory: "Pudding",
     price: "IDR 15K",
   ),
   Drink(
     drinkImage: "assets/images/bubble-tea.svg",
-    drinkName: "Taro Choco",
-    drinkCategory: "Choco",
+    drinkName: "Taro Pudding",
+    drinkCategory: "Pudding",
     price: "IDR 15K",
   ),
 ];

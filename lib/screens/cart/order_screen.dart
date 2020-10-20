@@ -1,31 +1,29 @@
 import 'package:drink_app/constants.dart';
-import 'package:drink_app/screens/mainmenu/components/body.dart';
+import 'package:drink_app/screens/cart/components/body.dart';
 import 'package:drink_app/size_config.dart';
 import 'package:flutter/material.dart';
 
-class MainMenuCustomer extends StatefulWidget {
+class OrderScreen extends StatefulWidget {
   @override
-  _MainMenuCustomerState createState() => _MainMenuCustomerState();
+  _OrderScreenState createState() => _OrderScreenState();
 }
 
-class _MainMenuCustomerState extends State<MainMenuCustomer> {
+class _OrderScreenState extends State<OrderScreen> {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return Scaffold(
-      // appBar: AppBar(
-      //   brightness: Brightness.dark,
-      // ),
+      appBar: buildAppBar(),
       body: Body(),
     );
   }
 
   AppBar buildAppBar() {
     return AppBar(
-      automaticallyImplyLeading: false,
-      backgroundColor: primaryColor,
+      // automaticallyImplyLeading: false,
+      backgroundColor: tertiaryColor,
       centerTitle: true,
-      title: Title(color: Colors.white, child: Text("Profil")),
+      title: Title(color: Colors.white, child: Text("Cart")),
       // actions: <Widget>[
       //   IconButton(
       //     icon: const Icon(Icons.settings),
